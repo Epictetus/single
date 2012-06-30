@@ -1,5 +1,22 @@
-診断結果
-
-id: <%= params[:name] %> さんは非リア充度 <%= @percent %> % です！！
+<%= content_for :css do %>
+	<style type="text/css">
+	* {margin: 0px; padding: 0px;vertical-align: bottom;}
+	body {border: 20px solid #000000;background: url("<%= image_path 'bg.gif'%>") repeat left top; text-align: center;}
+	p#mes {margin: 0px auto 10px auto; font-size: 12px; line-height: 1.4;color: #000000;font-family: serif;vertical-align: baseline;}
+	p#mes strong {font-family: Georgia; font-size: 100px;vertical-align: baseline;}
+	p#mes span {font-family: Georgia; font-size: 50px;vertical-align: baseline;}
+	p#copyright {margin: 10px auto 10px auto;}
+	</style>
+<% end %>
+<div id="mainArea">
+  <h1><%= image_tag 'title.gif', :alt => 'リアル診断' %></h1>
+  <p id="mes">あなたのリアル度は<strong><%= @percent %></strong><span>%</span>です。<%= @message %></p>
+  <p id="tweet">
+    <%= image_tag 'end.gif', alt: '結果をつぶやきましょう' %>
+  </p>
+  <p id="copyright">
+    <%= image_tag 'copyright.gif', alt: '@netwillnet * @9d' %>
+  </p>
+</div>
 
 
