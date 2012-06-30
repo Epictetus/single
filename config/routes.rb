@@ -2,6 +2,8 @@ Single::Application.routes.draw do
   root :to => 'main#index'
   get 'diag/:name' => 'main#diag'
 
+  match '*path' => 'main#error404'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

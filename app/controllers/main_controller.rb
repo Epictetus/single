@@ -7,7 +7,12 @@ class MainController < ApplicationController
   end
 
   def diag
-    twitt = Twitter.user_timeline(params[:name], :count => 200)
+    begin
+      twitt = Twitter.user_timeline(params[:name], :count => 200)
+    rescue Twitter::Error::NotFound
+      render :id_notfound
+      return
+    end
     timing = twitt.map(&:created_at)
     weekends = timing.count {|t| t.saturday? || t.sunday? }
     weekday_nights = timing.reject {|t| t.saturday? || t.sunday? }.select { |t| t.hour >= 21 || t.hour <= 3 }.tap { |t| p t}.count
@@ -35,4 +40,7 @@ class MainController < ApplicationController
                  '引きこもり過ぎではないですか。'
                end
   end
+
+  def id_notfound; end
+  def error404; end
 end
