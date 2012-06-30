@@ -1,6 +1,6 @@
 Single::Application.routes.draw do
   root :to => 'main#index'
-  post 'diag' => 'main#diag'
+  post 'diag' => 'main#diag', as: 'diagnosis'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
