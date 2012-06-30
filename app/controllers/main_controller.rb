@@ -18,6 +18,13 @@ class MainController < ApplicationController
     timing = twitt.map(&:created_at)
     weekends = timing.count {|t| t.saturday? || t.sunday? }
     weekday_nights = timing.reject {|t| t.saturday? || t.sunday? }.select { |t| t.hour >= 21 || t.hour <= 3 }.tap { |t| p t}.count
+    @relate_users = twitt.select {|r| r.in_reply_to_screen_name }.
+      map {|r| r.in_reply_to_screen_name }.
+      inject(Hash.new(0)) {|hash, name| hash[name] += 1; hash}.tap {|a| p a}.
+      sort {|a,b| b[1] <=> a[1] }.
+      map {|r| r[0] }.
+      take(3)
+
     @percent = (weekends + weekday_nights) / 2
     @message = case @percent
                when 0..10
