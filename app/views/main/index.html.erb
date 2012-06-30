@@ -1,6 +1,6 @@
 top page
 
-<%= form_tag(diagnosis_path) do %>
+<%= form_tag(diagnosis_path, method: :get) do %>
   <%= text_field_tag :name %>
   <%= submit_tag '診断' %>
 <% end %>
