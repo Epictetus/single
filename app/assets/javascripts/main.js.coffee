@@ -6,7 +6,7 @@
 jQuery ->
   $('#diag').submit (e) ->
     e.preventDefault()
-    uid = $('#name').val()
+    uid = $('#form1').val()
     uid.replace(/^\s*(.*?)\s*$/, "$1")
     location.href = '/diag/' + uid
     false
