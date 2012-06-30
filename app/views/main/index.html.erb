@@ -1,25 +1,25 @@
 <%= content_for :css do %>
-<style type="text/css">
-  * {margin: 0px; padding: 0px;vertical-align: bottom;}
-  body {border: 20px solid #000000;background: url("<%= image_path 'bg.jpg' %>") repeat left top; text-align: center;}
-  p#copy {margin: 30px auto 10px auto;}
-  #diag {font-size: 100%; height: 30px; width: 250px; margin-right: 10px;}
-  p#copyright {margin: 10px auto 10px auto;}
-</style>
+  <style type="text/css">
+    * {margin: 0px; padding: 0px;vertical-align: bottom;}
+    body {border: 20px solid #000000;background: url("<%= image_path 'bg.jpg' %>") repeat left top; text-align: center;}
+    p#copy {margin: 30px auto 10px auto;}
+    #form1 {font-size: 100%; height: 30px; width: 250px; margin-right: 10px;}
+    p#copyright {margin: 10px auto 10px auto;}
+  </style>
 <% end %>
 
-  <div id="mainArea">
-    <h1>
-      <%= image_tag 'title.gif', :alt => 'リアル診断' %>
-    </h1>
-    <p id="copy">
-      <%= image_tag 'copy.gif', :alt => 'あなたのtwitterアカウントを入力してください。' %>
-    </p>
-    <%= form_tag('/#', id: 'diag') do %>
-      <%= text_field_tag :name %>
-      <%= image_submit_tag 'button.gif', width: '66', height: '35' %>
-    <% end %>
-    <p id="copyright">
-      <%= image_tag 'copyright.gif', alt: '@netwillnet * @9d' %>
-    </p>
-  </div>
+<div id="mainArea">
+  <h1>
+    <%= image_tag 'title.gif', :alt => 'リアル診断' %>
+  </h1>
+  <p id="copy">
+    <%= image_tag 'copy.gif', :alt => 'あなたのtwitterアカウントを入力してください。' %>
+  </p>
+  <%= form_tag('/#', id: 'diag') do %>
+    <%= text_field_tag :name, nil, id: 'form1' %>
+    <%= image_submit_tag 'button.gif', width: '66', height: '35' %>
+  <% end %>
+  <p id="copyright">
+    <%= image_tag 'copyright.gif', alt: '@netwillnet * @9d' %>
+  </p>
+</div>
