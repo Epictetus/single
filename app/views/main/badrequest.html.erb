@@ -11,12 +11,7 @@
 <% end %>
 <div id="mainArea">
   <h1><%= link_to(image_tag('title.gif', :alt => 'リアル診断'), root_path) %></h1>
-  <p id="mes"><%= link_to "@#{params[:name]}", "http://twitter.com/#{params[:name]}" %>さんのシングル度は<strong><%= @percent %></strong><span>%</span>です。<%= @message %></p>
-  <p id="tweet">
-    <a href="http://twitter.com/share?text=<%= u %Q|.@#{params[:name]}のシングル度は "#{@percent} %" です。#{@message} #real_diagnosis| %>&amp;url=http://single-willnet.sqale.jp/diag/<%= params[:name] %>">
-      <%= image_tag 'end.gif', alt: '結果をつぶやきましょう' %>
-    </a>
-  </p>
+  <p id="mes">現在、Twitter API の制限をオーバーしているため結果を算出することが出来ません。申し訳ありませんが、しばらくお待ちいただいた後に再度お試しください。</p>
   <p id="copyright">
     <%= image_tag 'copyright.gif', alt: '@netwillnet * @9d' %>
   </p>

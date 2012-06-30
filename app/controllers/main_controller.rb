@@ -3,14 +3,16 @@ class MainController < ApplicationController
   caches_page :diag
 
   def index
-    @body = 'onLoad="boxMove();" id="bodyArea"'
   end
 
   def diag
     begin
       twitt = Twitter.user_timeline(params[:name], :count => 200)
+    rescue Twitter::Error::BadRequest
+      redirect_to action: :badrequest
+      return
     rescue Twitter::Error::NotFound
-      render :id_notfound
+      redirect_to action: :notfound, name: params[:name]
       return
     end
     timing = twitt.map(&:created_at)
@@ -41,6 +43,7 @@ class MainController < ApplicationController
                end
   end
 
-  def id_notfound; end
+  def badrequest; end
+  def notfound; end
   def error404; end
 end
