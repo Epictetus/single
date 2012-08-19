@@ -6,7 +6,7 @@ gem 'twitter'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
-  gem 'mysql2'
+  gem 'activerecord-postgresql-adapter'
 end
 
 group :development do
